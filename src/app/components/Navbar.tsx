@@ -35,7 +35,7 @@ const Navbar = () => {
 
         {/* Resume Button (desktop) */}
         <a
-          href="/resume.pdf"
+          href="/ResumeMain.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className=" hidden md:block rounded-full bg-white px-4 py-1.5 text-xs font-semibold uppercase text-black transition-all hover:bg-white/90 "
