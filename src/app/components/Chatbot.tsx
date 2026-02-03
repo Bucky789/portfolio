@@ -19,11 +19,9 @@ const Chatbot = () => {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // 👉 Auto-scroll anchor
   const bottomRef = useRef<HTMLDivElement | null>(null);
   const messagesRef = useRef<HTMLDivElement | null>(null);
 
-  // 👉 Always scroll to latest message
   useEffect(() => {
     if (!messagesRef.current) return;
     messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
@@ -34,7 +32,6 @@ const Chatbot = () => {
 
     const userMessage = input;
 
-    // Add user message
     setMessages((prev) => [...prev, { role: "user", content: userMessage }]);
 
     setInput("");
@@ -70,9 +67,9 @@ const Chatbot = () => {
   };
 
   return (
-    <div className="glass rounded-3xl border border-border p-4 w-full max-w-md flex flex-col lg:h-[520px] max-h-[520px]">
+    <div className="glass rounded-3xl border border-white/20 bg-black/40 text-white p-4 w-full max-w-md flex flex-col lg:h-[520px] max-h-[520px]">
       {/* Header */}
-      <div className="text-sm font-semibold mb-3 text-white/90 shrink-0">
+      <div className="text-sm font-semibold mb-3 text-white shrink-0">
         Chatbot
       </div>
 
@@ -106,7 +103,6 @@ const Chatbot = () => {
           </div>
         )}
 
-        {/* Scroll anchor */}
         <div ref={bottomRef} />
       </div>
 
@@ -118,7 +114,7 @@ const Chatbot = () => {
           onKeyDown={(e) => e.key === "Enter" && sendMessage()}
           placeholder="Ask the chatbot…"
           disabled={loading}
-          className="flex-1 rounded-full px-3 py-2 text-sm bg-black/30 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none disabled:opacity-50"
+          className="flex-1 rounded-full px-3 py-2 text-sm bg-black/40 border border-white/20 text-white placeholder:text-gray-400 focus:outline-none disabled:opacity-50"
         />
         <button
           onClick={sendMessage}

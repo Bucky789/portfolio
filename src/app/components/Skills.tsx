@@ -59,6 +59,7 @@ const SkillCard = ({ title, icon: Icon, items }: SkillCardProps) => {
         border border-[#00ADB5]/30
         hover:bg-[#00ADB5]/25
         hover:-translate-y-[2px]
+        text-white
       "
     >
       {/* Header */}
@@ -66,7 +67,9 @@ const SkillCard = ({ title, icon: Icon, items }: SkillCardProps) => {
         <div className="p-3 rounded-2xl bg-black/30 text-white">
           <Icon size={22} />
         </div>
-        <h3 className="text-lg font-bold tracking-tight text-white">{title}</h3>
+        <h3 className="text-lg font-bold tracking-tight text-white">
+          {title}
+        </h3>
       </div>
 
       {/* Items */}
@@ -96,13 +99,16 @@ const SkillCard = ({ title, icon: Icon, items }: SkillCardProps) => {
 
 const Skills = () => {
   return (
-    <section id="skills" className="max-w-6xl mx-auto px-4 py-24">
+    <section
+      id="skills"
+      className="max-w-6xl mx-auto px-4 py-24 bg-transparent text-white"
+    >
       {/* Header */}
       <div className="mb-12">
-        <h2 className="text-3xl font-bold tracking-tighter mb-2">
+        <h2 className="text-3xl font-bold tracking-tighter mb-2 text-white">
           TECHNICAL STACK
         </h2>
-        <p className="text-gray-500 max-w-xl">
+        <p className="text-white/60 max-w-xl">
           Languages, frameworks, and infrastructure tools I use to design and
           ship production systems.
         </p>
@@ -144,7 +150,7 @@ const Skills = () => {
           items={[
             { name: "OpenAI API", icon: SiOpenai },
             { name: "Gemini", icon: SiGoogle },
-            { name: "Ollama (Local LLMs)", icon: Cpu }, 
+            { name: "Ollama (Local LLMs)", icon: Cpu },
             { name: "TensorFlow", icon: SiTensorflow },
             { name: "Vector Embeddings", icon: Cpu },
             { name: "RAG Pipelines", icon: Cpu },

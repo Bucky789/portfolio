@@ -62,7 +62,7 @@ const Projects = () => {
   const scrollOneCard = (direction: "left" | "right") => {
     if (!scrollRef.current || !cardRef.current) return;
 
-    const cardWidth = cardRef.current.offsetWidth + 24; // card width + gap
+    const cardWidth = cardRef.current.offsetWidth + 24;
 
     scrollRef.current.scrollBy({
       left: direction === "left" ? -cardWidth : cardWidth,
@@ -71,12 +71,14 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="max-w-7xl mx-auto px-4 py-24">
-      <h2 className="text-3xl font-bold mb-12 tracking-tighter">
+    <section
+      id="projects"
+      className="max-w-7xl mx-auto px-4 py-24 bg-transparent text-white"
+    >
+      <h2 className="text-3xl font-bold mb-12 tracking-tighter text-white">
         FEATURED WORK
       </h2>
 
-      {/* Layout: arrows outside */}
       <div className="grid grid-cols-[auto_1fr_auto] items-center gap-6">
         {/* Left Arrow */}
         <button
@@ -85,12 +87,12 @@ const Projects = () => {
             hidden md:flex
             h-14 w-14 items-center justify-center
             rounded-full
-            bg-background/80
+            bg-black/40
             backdrop-blur-md
-            border border-border
-            text-foreground
+            border border-white/20
+            text-white
             transition-all
-            hover:bg-accent/20
+            hover:bg-white/10
           "
           aria-label="Previous project"
         >
@@ -101,13 +103,13 @@ const Projects = () => {
         <div
           ref={scrollRef}
           className="
-    flex gap-6
-    overflow-x-auto
-    scroll-smooth
-    touch-pan-x
-    snap-x snap-mandatory
-    hide-scrollbar
-  "
+            flex gap-6
+            overflow-x-auto
+            scroll-smooth
+            touch-pan-x
+            snap-x snap-mandatory
+            hide-scrollbar
+          "
         >
           {projects.map((project, index) => (
             <div
@@ -120,7 +122,9 @@ const Projects = () => {
                 md:w-[520px]
                 lg:w-[560px]
                 group relative rounded-3xl overflow-hidden
-                border border-border bg-card
+                border border-white/20
+                bg-black/40
+                text-white
               "
             >
               {/* Image */}
@@ -137,13 +141,15 @@ const Projects = () => {
               {/* Content */}
               <div className="p-8">
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-2xl font-bold">{project.title}</h3>
+                  <h3 className="text-2xl font-bold text-white">
+                    {project.title}
+                  </h3>
                   <div className="flex gap-3">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-white transition-colors"
+                      className="text-white/60 hover:text-white transition-colors"
                     >
                       <Github size={20} />
                     </a>
@@ -151,14 +157,14 @@ const Projects = () => {
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-white transition-colors"
+                      className="text-white/60 hover:text-white transition-colors"
                     >
                       <ExternalLink size={20} />
                     </a>
                   </div>
                 </div>
 
-                <p className="text-gray-400 text-base mb-6">
+                <p className="text-white/70 text-base mb-6">
                   {project.description}
                 </p>
 
@@ -166,7 +172,7 @@ const Projects = () => {
                   {project.tech.map((t) => (
                     <span
                       key={t}
-                      className="text-[11px] font-mono border border-white/10 px-2 py-1 rounded text-gray-500"
+                      className="text-[11px] font-mono border border-white/10 px-2 py-1 rounded text-white/60"
                     >
                       {t}
                     </span>
@@ -184,12 +190,12 @@ const Projects = () => {
             hidden md:flex
             h-14 w-14 items-center justify-center
             rounded-full
-            bg-background/80
+            bg-black/40
             backdrop-blur-md
-            border border-border
-            text-foreground
+            border border-white/20
+            text-white
             transition-all
-            hover:bg-accent/20
+            hover:bg-white/10
           "
           aria-label="Next project"
         >
@@ -198,7 +204,7 @@ const Projects = () => {
       </div>
 
       {/* Mobile hint */}
-      <p className="mt-6 text-xs text-gray-500 md:hidden text-center">
+      <p className="mt-6 text-xs text-white/50 md:hidden text-center">
         Swipe to view projects →
       </p>
     </section>
