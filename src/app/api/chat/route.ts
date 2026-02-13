@@ -4,7 +4,7 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
 
-    const res = await fetch("https://thermal-individual-dash-ending.trycloudflare.com/chat", {
+    const res = await fetch("https://influenced-calculators-hence-changelog.trycloudflare.com/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
